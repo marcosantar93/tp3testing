@@ -55,3 +55,43 @@ void test_MessageRcvAndReportConfigIntegrationCode0(void) {
 ), (UNITY_UINT)(28), UNITY_DISPLAY_STYLE_INT);
 
 }
+
+
+
+void test_MessageRcvAndReportConfigIntegrationCode1(void) {
+
+
+
+ uint8_t timerId=0;
+
+ timerStart_CMockExpectAndReturn(34, timerId, 0);
+
+
+
+ UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((msgProcess("01:0"))), (
+
+((void *)0)
+
+), (UNITY_UINT)(36), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_MessageRcvAndReportConfigIntegrationCode2(void) {
+
+
+
+ uint8_t timerId=0;
+
+ timerStart_CMockExpectAndReturn(42, timerId, 0);
+
+
+
+ UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((msgProcess("02:0"))), (
+
+((void *)0)
+
+), (UNITY_UINT)(44), UNITY_DISPLAY_STYLE_INT);
+
+}

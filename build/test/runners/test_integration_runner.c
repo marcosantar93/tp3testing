@@ -43,6 +43,8 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_MessageRcvAndReportConfigIntegrationCode0(void);
+extern void test_MessageRcvAndReportConfigIntegrationCode1(void);
+extern void test_MessageRcvAndReportConfigIntegrationCode2(void);
 
 
 /*=======Mock Management=====*/
@@ -101,6 +103,8 @@ int main(void)
   suite_setup();
   UnityBegin("test_integration.c");
   RUN_TEST(test_MessageRcvAndReportConfigIntegrationCode0, 15);
+  RUN_TEST(test_MessageRcvAndReportConfigIntegrationCode1, 31);
+  RUN_TEST(test_MessageRcvAndReportConfigIntegrationCode2, 39);
 
   CMock_Guts_MemFreeFinal();
   return suite_teardown(UnityEnd());

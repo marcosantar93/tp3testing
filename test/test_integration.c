@@ -27,3 +27,19 @@ void test_MessageRcvAndReportConfigIntegrationCode0(void) {
 	
 	TEST_ASSERT_EQUAL(0, msgProcess("00:0,0,600,1"));
 }
+
+void test_MessageRcvAndReportConfigIntegrationCode1(void) {
+
+	uint8_t timerId=0;
+	timerStart_ExpectAndReturn(timerId, 0);
+	
+	TEST_ASSERT_EQUAL(0, msgProcess("01:0"));
+}
+
+void test_MessageRcvAndReportConfigIntegrationCode2(void) {
+
+	uint8_t timerId=0;
+	timerStart_ExpectAndReturn(timerId, 0);
+	
+	TEST_ASSERT_EQUAL(0, msgProcess("02:0"));
+}
