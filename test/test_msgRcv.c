@@ -40,7 +40,9 @@ void test_MessageRcvCode0(void) {
 }
 
 void test_MessageRcvCode1(void) {
+	startADCReport_ExpectAndReturn(1, 0);
 	TEST_ASSERT_EQUAL(0, msgProcess("01:1"));
+	startADCReport_ExpectAndReturn(2, 0);
 	TEST_ASSERT_EQUAL(0, msgProcess("01:2"));
 	TEST_ASSERT_EQUAL(2, msgProcess("01:X"));
 	TEST_ASSERT_EQUAL(4, msgProcess("01:1,2"));
@@ -50,7 +52,9 @@ void test_MessageRcvCode1(void) {
 }
 
 void test_MessageRcvCode2(void) {
+	stopADCReport_ExpectAndReturn(1, 0);
 	TEST_ASSERT_EQUAL(0, msgProcess("02:1"));
+	stopADCReport_ExpectAndReturn(2, 0);
 	TEST_ASSERT_EQUAL(0, msgProcess("02:2"));
 	TEST_ASSERT_EQUAL(2, msgProcess("02:X"));
 	TEST_ASSERT_EQUAL(4, msgProcess("02:1,2"));

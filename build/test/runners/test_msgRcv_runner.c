@@ -103,8 +103,8 @@ int main(void)
   RUN_TEST(test_MessageRcvBasic, 13);
   RUN_TEST(test_MessageRcvCode0, 29);
   RUN_TEST(test_MessageRcvCode1, 42);
-  RUN_TEST(test_MessageRcvCode2, 52);
-  RUN_TEST(test_Ranges, 61);
+  RUN_TEST(test_MessageRcvCode2, 54);
+  RUN_TEST(test_Ranges, 65);
 
   CMock_Guts_MemFreeFinal();
   return suite_teardown(UnityEnd());
