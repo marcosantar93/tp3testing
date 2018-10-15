@@ -102,5 +102,29 @@ void test_MessageRcvCode2(void) {
 	uint8_t * msg05 = "02:";
 	retVal = msgProcess(msg05);
 	TEST_ASSERT_EQUAL(3, retVal);
+}
 
+void test_Ranges(void){
+	uint8_t retVal;
+	uint8_t * msg00 = "99:0,0,600,1";
+	retVal = msgProcess(msg00);
+	TEST_ASSERT_EQUAL(253, retVal);
+	uint8_t * msg01 = "99:0";
+	retVal = msgProcess(msg01);
+	TEST_ASSERT_EQUAL(253, retVal);
+	uint8_t * msg02 = "01:5";
+	retVal = msgProcess(msg02);
+	TEST_ASSERT_EQUAL(5, retVal);
+	uint8_t * msg03 = "00:0,4,600,1";
+	retVal = msgProcess(msg03);
+	TEST_ASSERT_EQUAL(6, retVal);
+	uint8_t * msg04 = "00:0,0,0,1";
+	retVal = msgProcess(msg04);
+	TEST_ASSERT_EQUAL(7, retVal);
+	uint8_t * msg05 = "00:0,0,66000,1";
+	retVal = msgProcess(msg05);
+	TEST_ASSERT_EQUAL(8, retVal);
+	uint8_t * msg06 = "00:0,0,40000,1";
+	retVal = msgProcess(msg06);
+	TEST_ASSERT_EQUAL(8, retVal);
 }

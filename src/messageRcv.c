@@ -3,6 +3,7 @@
 static uint8_t getParamsFromPayload(uint8_t * msgPayload, const uint8_t paramCount, uint16_t * params);
 
 const uint8_t NUM_OF_PARAMS_PER_CODE[] = {4,1,1};
+const uint8_t CODES_NUMBER = sizeof(NUM_OF_PARAMS_PER_CODE) / sizeof(NUM_OF_PARAMS_PER_CODE[0]);
 
 uint8_t msgProcess(uint8_t * msg){
 	uint8_t indexMsgPos=0;
@@ -14,24 +15,33 @@ uint8_t msgProcess(uint8_t * msg){
 		return 254;
 	indexMsgPos++;
 	uint8_t code = (msg[0]-'0')*10 + msg[1]-'0';
-	if((code>=0)&&(code<=99)){
-		uint8_t paramCount = NUM_OF_PARAMS_PER_CODE[code];
-		uint16_t params[paramCount];
+	uint8_t paramCount = NUM_OF_PARAMS_PER_CODE[code];
+	uint16_t params[paramCount];
+	if((code>=0)&&(code<=CODES_NUMBER)){
 		uint8_t retVal = getParamsFromPayload(msg+indexMsgPos,paramCount,params);
 		if(retVal!=0){
 			return retVal;
 		}
 	}
+	if(params[0]>3)
+		return 5; //ADC out of range
 	switch(code){
 		case 0:{		
-		
+			if(params[1]>2)
+				return 6; //Sensor type out of range
+			if(params[2]<60)
+				return 7; //Time interval too short
+			if(params[2]>36000)
+				return 8; //Time interval too long
 			return 0;
+
 		}
 		case 1:{
 
 			return 0;
 		}
 		case 2:{
+
 			return 0;
 		}
 		default:{
@@ -39,12 +49,12 @@ uint8_t msgProcess(uint8_t * msg){
 		}
 	}
 }
-//"00:0,0,600,"
+//"99:0,0,600,1"
 static uint8_t getParamsFromPayload(uint8_t * msgPayload, const uint8_t paramCount, uint16_t * params) {
 	uint8_t paramCountLocal = 0;
 	uint8_t index = 0;
 	uint8_t charCount = 0;
-	uint16_t aux = 0;
+	uint32_t aux = 0;
 	do{
 		if((msgPayload[index] != ',') && (msgPayload[index] != 0) ){
 			charCount++;
@@ -60,7 +70,9 @@ static uint8_t getParamsFromPayload(uint8_t * msgPayload, const uint8_t paramCou
 				return 3;
 			else {
 				charCount = 0;
-				params[paramCountLocal]=aux;
+				if(aux > 65535)
+					aux = 65535;
+				params[paramCountLocal]=(uint16_t)aux;
 				aux = 0;
 				paramCountLocal++;
 			}

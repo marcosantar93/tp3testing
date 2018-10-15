@@ -39,6 +39,7 @@ extern void test_MessageRcvBasic(void);
 extern void test_MessageRcvCode0(void);
 extern void test_MessageRcvCode1(void);
 extern void test_MessageRcvCode2(void);
+extern void test_Ranges(void);
 
 
 /*=======Suite Setup=====*/
@@ -77,6 +78,7 @@ int main(void)
   RUN_TEST(test_MessageRcvCode0, 28);
   RUN_TEST(test_MessageRcvCode1, 62);
   RUN_TEST(test_MessageRcvCode2, 85);
+  RUN_TEST(test_Ranges, 107);
 
   return suite_teardown(UnityEnd());
 }
