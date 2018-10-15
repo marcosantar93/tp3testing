@@ -39,7 +39,7 @@ void test_MessageRcvAndReportConfigIntegrationCode1(void) {
 void test_MessageRcvAndReportConfigIntegrationCode2(void) {
 
 	uint8_t timerId=0;
-	timerStart_ExpectAndReturn(timerId, 0);
+	timerStop_ExpectAndReturn(timerId, 0);
 	
 	TEST_ASSERT_EQUAL(0, msgProcess("02:0"));
 }

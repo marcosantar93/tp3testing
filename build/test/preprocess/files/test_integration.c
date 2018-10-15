@@ -84,7 +84,7 @@ void test_MessageRcvAndReportConfigIntegrationCode2(void) {
 
  uint8_t timerId=0;
 
- timerStart_CMockExpectAndReturn(42, timerId, 0);
+ timerStop_CMockExpectAndReturn(42, timerId, 0);
 
 
 

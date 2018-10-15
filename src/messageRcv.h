@@ -1,3 +1,6 @@
+#ifndef MESSAGE_RCV_H_
+#define MESSAGE_RCV_H_
+
 #include <stdint.h>
 #include "reportConfig.h"
 
@@ -27,3 +30,6 @@ typedef enum {
 } code_t;
 
 uint8_t msgProcess(uint8_t * msg);
+
+
+#endif /* MESSAGE_RCV_H_ */

@@ -9,15 +9,15 @@
 - :test: test_MessageRcvAndReportConfigIntegrationCode1
   :line: 31
   :message: ''
-:failures:
 - :test: test_MessageRcvAndReportConfigIntegrationCode2
   :line: 39
-  :message: Function timerStop.  Called more times than expected.
+  :message: ''
+:failures: []
 :ignores: []
 :counts:
   :total: 3
-  :passed: 2
-  :failed: 1
+  :passed: 3
+  :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0007798379956511781
+:time: 0.0008248460071627051
