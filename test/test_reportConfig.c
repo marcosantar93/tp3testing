@@ -16,7 +16,7 @@ void test_reportConfig(void) {
 		.targetADC 			= 0,
 		.sensorType			= 0,
 		.interval			= 600,
-		.reportableChange	= 1
+		.reportableChange	= 1,
 	};
 	uint8_t timerId, timerIdPostInit=0;
 	adcInit_ExpectAndReturn(paramsADCReport.targetADC, 0);

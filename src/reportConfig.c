@@ -6,6 +6,8 @@ uint8_t configADCReport(paramsADCReport_t paramsADCReport){
 		return retVal;
 	uint8_t timerId;
 	retVal = timerInit(paramsADCReport.interval, &timerId);
+	if(retVal!=0)
+		return retVal;
 	return retVal;
 }
 uint8_t startADCReport(uint8_t timerId){
