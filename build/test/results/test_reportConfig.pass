@@ -1,0 +1,23 @@
+---
+:source:
+  :path: test
+  :file: test_reportConfig.c
+:successes:
+- :test: test_reportConfig
+  :line: 12
+  :message: ''
+- :test: test_reportStart
+  :line: 22
+  :message: ''
+- :test: test_reportStop
+  :line: 26
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 3
+  :passed: 3
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.0008685429929755628

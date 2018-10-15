@@ -8,3 +8,5 @@ typedef struct {
 } paramsADCReport_t;
 
 uint8_t configADCReport(paramsADCReport_t paramsADCReport);
+uint8_t startADCReport(uint8_t adcId);
+uint8_t stopADCReport(uint8_t adcId);
