@@ -1,6 +1,7 @@
 #include "unity.h"
 #include "reportConfig.h"
-#include "Mockadc.h"
+#include "mock_adc.h"
+#include "mock_timer.h"
 
 void setUp(void) {
 
@@ -23,11 +24,11 @@ void test_reportConfig(void) {
 }
 
 void test_reportStart(void) {
-	timerStart_ExpectAndReturn(0, 0)
+	timerStart_ExpectAndReturn(0, 0);
 	TEST_ASSERT_EQUAL(0, startADCReport(0));
 }
 
 void test_reportStop(void) {
-	timerStop_ExpectAndReturn(0, 0)
+	timerStop_ExpectAndReturn(0, 0);
 	TEST_ASSERT_EQUAL(0, stopADCReport(0));
 }

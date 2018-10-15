@@ -6,6 +6,8 @@
   Unity.CurrentTestName = #TestFunc; \
   Unity.CurrentTestLineNumber = TestLineNum; \
   Unity.NumberOfTests++; \
+  CMock_Init(); \
+  UNITY_CLR_DETAILS(); \
   if (TEST_PROTECT()) \
   { \
       setUp(); \
@@ -14,7 +16,9 @@
   if (TEST_PROTECT()) \
   { \
     tearDown(); \
+    CMock_Verify(); \
   } \
+  CMock_Destroy(); \
   UnityConcludeTest(); \
 }
 
@@ -23,10 +27,13 @@
 #define UNITY_INCLUDE_SETUP_STUBS
 #endif
 #include "unity.h"
+#include "cmock.h"
 #ifndef UNITY_EXCLUDE_SETJMP_H
 #include <setjmp.h>
 #endif
 #include <stdio.h>
+#include "mock_adc.h"
+#include "mock_timer.h"
 
 int GlobalExpectCount;
 int GlobalVerifyOrder;
@@ -39,6 +46,26 @@ extern void test_reportConfig(void);
 extern void test_reportStart(void);
 extern void test_reportStop(void);
 
+
+/*=======Mock Management=====*/
+static void CMock_Init(void)
+{
+  GlobalExpectCount = 0;
+  GlobalVerifyOrder = 0;
+  GlobalOrderError = NULL;
+  mock_adc_Init();
+  mock_timer_Init();
+}
+static void CMock_Verify(void)
+{
+  mock_adc_Verify();
+  mock_timer_Verify();
+}
+static void CMock_Destroy(void)
+{
+  mock_adc_Destroy();
+  mock_timer_Destroy();
+}
 
 /*=======Suite Setup=====*/
 static void suite_setup(void)
@@ -62,7 +89,10 @@ static int suite_teardown(int num_failures)
 void resetTest(void);
 void resetTest(void)
 {
+  CMock_Verify();
+  CMock_Destroy();
   tearDown();
+  CMock_Init();
   setUp();
 }
 
@@ -72,9 +102,10 @@ int main(void)
 {
   suite_setup();
   UnityBegin("test_reportConfig.c");
-  RUN_TEST(test_reportConfig, 12);
-  RUN_TEST(test_reportStart, 22);
-  RUN_TEST(test_reportStop, 26);
+  RUN_TEST(test_reportConfig, 14);
+  RUN_TEST(test_reportStart, 26);
+  RUN_TEST(test_reportStop, 31);
 
+  CMock_Guts_MemFreeFinal();
   return suite_teardown(UnityEnd());
 }
