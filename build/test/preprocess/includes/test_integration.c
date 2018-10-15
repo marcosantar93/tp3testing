@@ -1,3 +1,7 @@
 ---
 - unity.h
+- messageRcv.h
+- reportConfig.h
+- mock_adc.h
+- mock_timer.h
 - build/temp/_test_integration.c

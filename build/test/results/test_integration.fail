@@ -1,0 +1,17 @@
+---
+:source:
+  :path: test
+  :file: test_integration.c
+:successes: []
+:failures:
+- :test: test_MessageRcvAndReportConfigIntegrationCode0
+  :line: 15
+  :message: Function adcInit.  Called less times than expected.
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 0
+  :failed: 1
+  :ignored: 0
+:stdout: []
+:time: 0.000834520993521437

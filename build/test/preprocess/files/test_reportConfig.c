@@ -31,7 +31,7 @@ void test_reportConfig(void) {
 
   .interval = 600,
 
-  .reportableChange = 1
+  .reportableChange = 1,
 
  };
 
