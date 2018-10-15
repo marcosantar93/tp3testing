@@ -19,7 +19,7 @@ void tearDown(void) {
 
 
 
-void test_MessageRcv(void) {
+void test_MessageRcvBasic(void) {
 
  uint8_t retVal;
 
@@ -62,5 +62,73 @@ void test_MessageRcv(void) {
 ((void *)0)
 
 ), (UNITY_UINT)(25), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_MessageRcvCode0(void) {
+
+ uint8_t retVal;
+
+ uint8_t * msg00 = "00:X,PRESSURE,600,1";
+
+ retVal = msgProcess(msg00);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(32), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg01 = "00:0,X,600,1";
+
+ retVal = msgProcess(msg01);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(35), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg02 = "00:0,PRESSURE,X,1";
+
+ retVal = msgProcess(msg02);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(38), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg03 = "00:0,PRESSURE,600,X";
+
+ retVal = msgProcess(msg03);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(41), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg04 = "00:0,NOTADEVICE,600";
+
+ retVal = msgProcess(msg04);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(44), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg05 = "00:0,PRESSURE,600,1,X";
+
+ retVal = msgProcess(msg05);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_INT);
 
 }

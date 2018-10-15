@@ -35,7 +35,8 @@ char* GlobalOrderError;
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_MessageRcv(void);
+extern void test_MessageRcvBasic(void);
+extern void test_MessageRcvCode0(void);
 
 
 /*=======Suite Setup=====*/
@@ -70,7 +71,8 @@ int main(void)
 {
   suite_setup();
   UnityBegin("test_msgRcv.c");
-  RUN_TEST(test_MessageRcv, 12);
+  RUN_TEST(test_MessageRcvBasic, 12);
+  RUN_TEST(test_MessageRcvCode0, 28);
 
   return suite_teardown(UnityEnd());
 }

@@ -2,16 +2,19 @@
 :source:
   :path: test
   :file: test_msgRcv.c
-:successes: []
+:successes:
+- :test: test_MessageRcvBasic
+  :line: 12
+  :message: ''
 :failures:
-- :test: test_MessageRcv
-  :line: 25
+- :test: test_MessageRcvCode0
+  :line: 32
   :message: Expected 1 Was 0
 :ignores: []
 :counts:
-  :total: 1
-  :passed: 0
+  :total: 2
+  :passed: 1
   :failed: 1
   :ignored: 0
 :stdout: []
-:time: 0.0016109200005303137
+:time: 0.0014437400004680967
