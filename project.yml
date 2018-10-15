@@ -53,6 +53,8 @@
   :plugins:
     - :ignore
     - :callback
+    - :return_thru_ptr     # <= this is the one you want
+    - :ignore_arg          # <= this is useful too
   :treat_as:
     uint8:    HEX8
     uint16:   HEX16

@@ -25,22 +25,34 @@ void mock_timer_Verify(void);
 
 #define timerInit_IgnoreAndReturn(cmock_retval) timerInit_CMockIgnoreAndReturn(__LINE__, cmock_retval)
 void timerInit_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, uint8_t cmock_to_return);
-#define timerInit_ExpectAndReturn(timerId, cmock_retval) timerInit_CMockExpectAndReturn(__LINE__, timerId, cmock_retval)
-void timerInit_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, uint8_t timerId, uint8_t cmock_to_return);
-typedef uint8_t (* CMOCK_timerInit_CALLBACK)(uint8_t timerId, int cmock_num_calls);
+#define timerInit_ExpectAndReturn(period, timerId, cmock_retval) timerInit_CMockExpectAndReturn(__LINE__, period, timerId, cmock_retval)
+void timerInit_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, uint16_t period, uint8_t* timerId, uint8_t cmock_to_return);
+typedef uint8_t (* CMOCK_timerInit_CALLBACK)(uint16_t period, uint8_t* timerId, int cmock_num_calls);
 void timerInit_StubWithCallback(CMOCK_timerInit_CALLBACK Callback);
+#define timerInit_ReturnThruPtr_timerId(timerId) timerInit_CMockReturnMemThruPtr_timerId(__LINE__, timerId, sizeof(*timerId))
+#define timerInit_ReturnArrayThruPtr_timerId(timerId, cmock_len) timerInit_CMockReturnMemThruPtr_timerId(__LINE__, timerId, (int)(cmock_len * (int)sizeof(*timerId)))
+#define timerInit_ReturnMemThruPtr_timerId(timerId, cmock_size) timerInit_CMockReturnMemThruPtr_timerId(__LINE__, timerId, cmock_size)
+void timerInit_CMockReturnMemThruPtr_timerId(UNITY_LINE_TYPE cmock_line, uint8_t* timerId, int cmock_size);
+#define timerInit_IgnoreArg_period() timerInit_CMockIgnoreArg_period(__LINE__)
+void timerInit_CMockIgnoreArg_period(UNITY_LINE_TYPE cmock_line);
+#define timerInit_IgnoreArg_timerId() timerInit_CMockIgnoreArg_timerId(__LINE__)
+void timerInit_CMockIgnoreArg_timerId(UNITY_LINE_TYPE cmock_line);
 #define timerStart_IgnoreAndReturn(cmock_retval) timerStart_CMockIgnoreAndReturn(__LINE__, cmock_retval)
 void timerStart_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, uint8_t cmock_to_return);
 #define timerStart_ExpectAndReturn(timerId, cmock_retval) timerStart_CMockExpectAndReturn(__LINE__, timerId, cmock_retval)
 void timerStart_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, uint8_t timerId, uint8_t cmock_to_return);
 typedef uint8_t (* CMOCK_timerStart_CALLBACK)(uint8_t timerId, int cmock_num_calls);
 void timerStart_StubWithCallback(CMOCK_timerStart_CALLBACK Callback);
+#define timerStart_IgnoreArg_timerId() timerStart_CMockIgnoreArg_timerId(__LINE__)
+void timerStart_CMockIgnoreArg_timerId(UNITY_LINE_TYPE cmock_line);
 #define timerStop_IgnoreAndReturn(cmock_retval) timerStop_CMockIgnoreAndReturn(__LINE__, cmock_retval)
 void timerStop_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, uint8_t cmock_to_return);
 #define timerStop_ExpectAndReturn(timerId, cmock_retval) timerStop_CMockExpectAndReturn(__LINE__, timerId, cmock_retval)
 void timerStop_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, uint8_t timerId, uint8_t cmock_to_return);
 typedef uint8_t (* CMOCK_timerStop_CALLBACK)(uint8_t timerId, int cmock_num_calls);
 void timerStop_StubWithCallback(CMOCK_timerStop_CALLBACK Callback);
+#define timerStop_IgnoreArg_timerId() timerStop_CMockIgnoreArg_timerId(__LINE__)
+void timerStop_CMockIgnoreArg_timerId(UNITY_LINE_TYPE cmock_line);
 
 #if defined(__GNUC__) && !defined(__ICC) && !defined(__TMS470__)
 #if __GNUC__ > 4 || (__GNUC__ == 4 && (__GNUC_MINOR__ > 6 || (__GNUC_MINOR__ == 6 && __GNUC_PATCHLEVEL__ > 0)))

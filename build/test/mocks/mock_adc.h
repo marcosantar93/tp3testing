@@ -29,6 +29,8 @@ void adcInit_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, uint8_t cmock_to_r
 void adcInit_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, uint8_t adcId, uint8_t cmock_to_return);
 typedef uint8_t (* CMOCK_adcInit_CALLBACK)(uint8_t adcId, int cmock_num_calls);
 void adcInit_StubWithCallback(CMOCK_adcInit_CALLBACK Callback);
+#define adcInit_IgnoreArg_adcId() adcInit_CMockIgnoreArg_adcId(__LINE__)
+void adcInit_CMockIgnoreArg_adcId(UNITY_LINE_TYPE cmock_line);
 
 #if defined(__GNUC__) && !defined(__ICC) && !defined(__TMS470__)
 #if __GNUC__ > 4 || (__GNUC__ == 4 && (__GNUC_MINOR__ > 6 || (__GNUC_MINOR__ == 6 && __GNUC_PATCHLEVEL__ > 0)))

@@ -103,8 +103,8 @@ int main(void)
   suite_setup();
   UnityBegin("test_reportConfig.c");
   RUN_TEST(test_reportConfig, 14);
-  RUN_TEST(test_reportStart, 26);
-  RUN_TEST(test_reportStop, 31);
+  RUN_TEST(test_reportStart, 28);
+  RUN_TEST(test_reportStop, 34);
 
   CMock_Guts_MemFreeFinal();
   return suite_teardown(UnityEnd());

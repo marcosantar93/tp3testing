@@ -15,6 +15,7 @@ typedef struct _CMOCK_adcInit_CALL_INSTANCE
   uint8_t ReturnVal;
   int CallOrder;
   uint8_t Expected_adcId;
+  int IgnoreArg_adcId;
 
 } CMOCK_adcInit_CALL_INSTANCE;
 
@@ -82,6 +83,7 @@ uint8_t adcInit(uint8_t adcId)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledEarly);
   if (cmock_call_instance->CallOrder < GlobalVerifyOrder)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledLate);
+  if (!cmock_call_instance->IgnoreArg_adcId)
   {
     UNITY_SET_DETAILS(CMockString_adcInit,CMockString_adcId);
     UNITY_TEST_ASSERT_EQUAL_HEX8(cmock_call_instance->Expected_adcId, adcId, cmock_line, CMockStringMismatch);
@@ -93,6 +95,7 @@ uint8_t adcInit(uint8_t adcId)
 void CMockExpectParameters_adcInit(CMOCK_adcInit_CALL_INSTANCE* cmock_call_instance, uint8_t adcId)
 {
   cmock_call_instance->Expected_adcId = adcId;
+  cmock_call_instance->IgnoreArg_adcId = 0;
 }
 
 void adcInit_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, uint8_t cmock_to_return)
@@ -127,5 +130,12 @@ void adcInit_StubWithCallback(CMOCK_adcInit_CALLBACK Callback)
 {
   Mock.adcInit_IgnoreBool = (int)0;
   Mock.adcInit_CallbackFunctionPointer = Callback;
+}
+
+void adcInit_CMockIgnoreArg_adcId(UNITY_LINE_TYPE cmock_line)
+{
+  CMOCK_adcInit_CALL_INSTANCE* cmock_call_instance = (CMOCK_adcInit_CALL_INSTANCE*)CMock_Guts_GetAddressFor(CMock_Guts_MemEndOfChain(Mock.adcInit_CallInstance));
+  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, CMockStringIgnPreExp);
+  cmock_call_instance->IgnoreArg_adcId = 1;
 }
 
