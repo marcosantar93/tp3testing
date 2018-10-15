@@ -6,7 +6,7 @@ El módulo de recepcion de mensajes de configuracion debe cumplir con los siguie
 
 2- Comprueba el mensaje cumple con uno de los siguientes formatos:
 
-	a. [codigo_de_configuracion]:[adc_a_configurar(0..3)],[tipo_de_sensor(presion,temperatura,corriente)],[intervalo_de_repote_en_segundos],[minimo_cambio_reportable]
+	a. [codigo_de_configuracion]:[adc_a_configurar(0..3)],[tipo_de_sensor(presion=0,temperatura=1,corriente=2)],[intervalo_de_repote_en_segundos],[minimo_cambio_reportable]
 
 	b. [codigo_de_inicio_de_reporte]:[adc_a_configurar(0..3)]
 

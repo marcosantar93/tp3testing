@@ -75,7 +75,7 @@ void test_MessageRcvCode0(void) {
 
  retVal = msgProcess(msg00);
 
- UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+ UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((retVal)), (
 
 ((void *)0)
 
@@ -85,7 +85,7 @@ void test_MessageRcvCode0(void) {
 
  retVal = msgProcess(msg01);
 
- UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+ UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((retVal)), (
 
 ((void *)0)
 
@@ -95,7 +95,7 @@ void test_MessageRcvCode0(void) {
 
  retVal = msgProcess(msg02);
 
- UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+ UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((retVal)), (
 
 ((void *)0)
 
@@ -105,7 +105,7 @@ void test_MessageRcvCode0(void) {
 
  retVal = msgProcess(msg03);
 
- UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+ UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((retVal)), (
 
 ((void *)0)
 
@@ -115,7 +115,7 @@ void test_MessageRcvCode0(void) {
 
  retVal = msgProcess(msg04);
 
- UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+ UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((retVal)), (
 
 ((void *)0)
 
@@ -125,7 +125,7 @@ void test_MessageRcvCode0(void) {
 
  retVal = msgProcess(msg05);
 
- UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+ UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((retVal)), (
 
 ((void *)0)
 
@@ -135,7 +135,7 @@ void test_MessageRcvCode0(void) {
 
  retVal = msgProcess(msg06);
 
- UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+ UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((retVal)), (
 
 ((void *)0)
 
@@ -145,7 +145,7 @@ void test_MessageRcvCode0(void) {
 
  retVal = msgProcess(msg07);
 
- UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+ UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((retVal)), (
 
 ((void *)0)
 
@@ -155,7 +155,7 @@ void test_MessageRcvCode0(void) {
 
  retVal = msgProcess(msg08);
 
- UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+ UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((retVal)), (
 
 ((void *)0)
 
@@ -165,7 +165,7 @@ void test_MessageRcvCode0(void) {
 
  retVal = msgProcess(msg09);
 
- UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+ UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((retVal)), (
 
 ((void *)0)
 
