@@ -18,3 +18,11 @@ void test_reportConfig(void) {
 	};
 	TEST_ASSERT_EQUAL(0, configADCReport(paramsADCReport));
 }
+
+void test_reportStart(void) {
+	TEST_ASSERT_EQUAL(0, startADCReport(0));
+}
+
+void test_reportStop(void) {
+	TEST_ASSERT_EQUAL(0, stopADCReport(0));
+}

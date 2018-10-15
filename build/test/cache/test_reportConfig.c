@@ -40,3 +40,27 @@ void test_reportConfig(void) {
 ), (UNITY_UINT)(19), UNITY_DISPLAY_STYLE_INT);
 
 }
+
+
+
+void test_reportStart(void) {
+
+ UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((startADCReport(0))), (
+
+((void *)0)
+
+), (UNITY_UINT)(23), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_reportStop(void) {
+
+ UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((stopADCReport(0))), (
+
+((void *)0)
+
+), (UNITY_UINT)(27), UNITY_DISPLAY_STYLE_INT);
+
+}

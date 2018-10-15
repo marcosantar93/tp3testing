@@ -36,6 +36,8 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_reportConfig(void);
+extern void test_reportStart(void);
+extern void test_reportStop(void);
 
 
 /*=======Suite Setup=====*/
@@ -71,6 +73,8 @@ int main(void)
   suite_setup();
   UnityBegin("test_reportConfig.c");
   RUN_TEST(test_reportConfig, 12);
+  RUN_TEST(test_reportStart, 22);
+  RUN_TEST(test_reportStop, 26);
 
   return suite_teardown(UnityEnd());
 }
