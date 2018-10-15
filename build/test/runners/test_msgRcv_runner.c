@@ -75,10 +75,10 @@ int main(void)
   suite_setup();
   UnityBegin("test_msgRcv.c");
   RUN_TEST(test_MessageRcvBasic, 12);
-  RUN_TEST(test_MessageRcvCode0, 28);
-  RUN_TEST(test_MessageRcvCode1, 62);
-  RUN_TEST(test_MessageRcvCode2, 85);
-  RUN_TEST(test_Ranges, 107);
+  RUN_TEST(test_MessageRcvCode0, 20);
+  RUN_TEST(test_MessageRcvCode1, 33);
+  RUN_TEST(test_MessageRcvCode2, 43);
+  RUN_TEST(test_Ranges, 52);
 
   return suite_teardown(UnityEnd());
 }

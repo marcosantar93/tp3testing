@@ -7,16 +7,16 @@
   :line: 12
   :message: ''
 - :test: test_MessageRcvCode0
-  :line: 28
+  :line: 20
   :message: ''
 - :test: test_MessageRcvCode1
-  :line: 62
+  :line: 33
   :message: ''
 - :test: test_MessageRcvCode2
-  :line: 85
+  :line: 43
   :message: ''
 - :test: test_Ranges
-  :line: 107
+  :line: 52
   :message: ''
 :failures: []
 :ignores: []
@@ -26,4 +26,4 @@
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0007685719974688254
+:time: 0.0007885759987402707

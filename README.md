@@ -17,3 +17,5 @@ El módulo de recepcion de mensajes de configuracion debe cumplir con los siguie
 4- Si el mensaje corresponde al formato "b.", comprueba si el timer asociado al ADC se encontraba corriendo y en caso negativo, lo reanuda.
 
 5- Si el mensaje corresponde al formato "c.", comprueba si el timer asociado al ADC se encontraba corriendo y en caso positivo, lo detiene.
+
+6- El intervalo de timpo debe estar entre 1 minuto y 10 horas
