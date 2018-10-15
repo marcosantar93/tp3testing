@@ -58,3 +58,4 @@ void test_Ranges(void){
 	TEST_ASSERT_EQUAL(8, msgProcess("00:0,0,66000,1"));
 	TEST_ASSERT_EQUAL(8, msgProcess("00:0,0,40000,1"));
 }
+

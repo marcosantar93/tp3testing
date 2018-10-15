@@ -53,7 +53,7 @@ uint8_t msgProcess(uint8_t * msg){
 		}
 	}
 }
-//"99:0,0,600,1"
+
 static uint8_t getParamsFromPayload(uint8_t * msgPayload, const uint8_t paramCount, uint16_t * params) {
 	uint8_t paramCountLocal = 0;
 	uint8_t index = 0;
@@ -63,14 +63,14 @@ static uint8_t getParamsFromPayload(uint8_t * msgPayload, const uint8_t paramCou
 		if((msgPayload[index] != PARAMS_DIVIDER) && (msgPayload[index] != 0) ){
 			charCount++;
 			if((msgPayload[index] > '9')||(msgPayload[index] < '0'))
-				return NOT_A_NUMBER; //not a number
+				return NOT_A_NUMBER; 
 			else{
 				aux *= 10;
 				aux += msgPayload[index]-'0';
 			}
 		}
 		else {
-			if(0 == charCount) //empty param
+			if(0 == charCount) 
 				return EMPTY_PARAM;
 			else {
 				charCount = 0;
