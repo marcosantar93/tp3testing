@@ -1,0 +1,23 @@
+---
+:source:
+  :path: test
+  :file: test_integration.c
+:successes:
+- :test: test_MessageRcvAndReportConfigIntegrationCode0
+  :line: 15
+  :message: ''
+- :test: test_MessageRcvAndReportConfigIntegrationCode1
+  :line: 31
+  :message: ''
+:failures:
+- :test: test_MessageRcvAndReportConfigIntegrationCode2
+  :line: 39
+  :message: Function timerStop.  Called more times than expected.
+:ignores: []
+:counts:
+  :total: 3
+  :passed: 2
+  :failed: 1
+  :ignored: 0
+:stdout: []
+:time: 0.0007798379956511781

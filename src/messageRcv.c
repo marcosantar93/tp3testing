@@ -50,10 +50,10 @@ uint8_t msgProcess(uint8_t * msg){
 
 		}
 		case REPORT_START:{
-			return ERR_OK;
+			return startADCReport(params[0]);
 		}
 		case REPORT_STOP:{
-			return ERR_OK;
+			return stopADCReport(params[0]);
 		}
 		default:{
 			return UNKNOWN_CODE;
