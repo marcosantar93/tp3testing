@@ -40,7 +40,14 @@ uint8_t msgProcess(uint8_t * msg){
 				return TIME_INTERVAL_TOO_SHORT; 
 			if(params[2] > MAX_TIME)
 				return TIME_INTERVAL_TOO_LONG; 
-			return ERR_OK;
+			paramsADCReport_t paramsADCReport={
+				.targetADC 			= 0,
+				.sensorType			= 0,
+				.interval			= 600,
+				.reportableChange	= 1,
+			};
+			return configADCReport(paramsADCReport);
+
 		}
 		case REPORT_START:{
 			return ERR_OK;

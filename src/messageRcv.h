@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include "reportConfig.h"
 
 #define CODE_FROM_PAYLOAD_DIVIDER ':'
 #define PARAMS_DIVIDER ','
