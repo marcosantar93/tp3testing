@@ -23,7 +23,7 @@ void test_MessageRcvBasic(void) {
 
  uint8_t retVal;
 
- uint8_t * msg00 = "00:0,PRESSURE,600,1";
+ uint8_t * msg00 = "00:0,0,600,1";
 
  retVal = msgProcess(msg00);
 
@@ -71,7 +71,7 @@ void test_MessageRcvCode0(void) {
 
  uint8_t retVal;
 
- uint8_t * msg00 = "00:X,PRESSURE,600,1";
+ uint8_t * msg00 = "00:X,0,600,1";
 
  retVal = msgProcess(msg00);
 
@@ -91,7 +91,7 @@ void test_MessageRcvCode0(void) {
 
 ), (UNITY_UINT)(35), UNITY_DISPLAY_STYLE_INT);
 
- uint8_t * msg02 = "00:0,PRESSURE,X,1";
+ uint8_t * msg02 = "00:0,0,X,1";
 
  retVal = msgProcess(msg02);
 
@@ -101,7 +101,7 @@ void test_MessageRcvCode0(void) {
 
 ), (UNITY_UINT)(38), UNITY_DISPLAY_STYLE_INT);
 
- uint8_t * msg03 = "00:0,PRESSURE,600,X";
+ uint8_t * msg03 = "00:0,0,600,X";
 
  retVal = msgProcess(msg03);
 
@@ -111,7 +111,7 @@ void test_MessageRcvCode0(void) {
 
 ), (UNITY_UINT)(41), UNITY_DISPLAY_STYLE_INT);
 
- uint8_t * msg04 = "00:0,NOTADEVICE,600";
+ uint8_t * msg04 = "00:0,0,600";
 
  retVal = msgProcess(msg04);
 
@@ -121,7 +121,7 @@ void test_MessageRcvCode0(void) {
 
 ), (UNITY_UINT)(44), UNITY_DISPLAY_STYLE_INT);
 
- uint8_t * msg05 = "00:0,PRESSURE,600,1,X";
+ uint8_t * msg05 = "00:0,0,600,1,X";
 
  retVal = msgProcess(msg05);
 
@@ -130,5 +130,45 @@ void test_MessageRcvCode0(void) {
 ((void *)0)
 
 ), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg06 = "00:,0,600,1";
+
+ retVal = msgProcess(msg06);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(50), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg07 = "00:0,,600,1";
+
+ retVal = msgProcess(msg07);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(53), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg08 = "00:0,0,,1";
+
+ retVal = msgProcess(msg08);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(56), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg09 = "00:0,0,600,";
+
+ retVal = msgProcess(msg09);
+
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(59), UNITY_DISPLAY_STYLE_INT);
 
 }
