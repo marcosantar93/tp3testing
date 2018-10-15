@@ -14,21 +14,21 @@ uint8_t msgProcess(uint8_t * msg){
 		return 254;
 	indexMsgPos++;
 	uint8_t code = (msg[0]-'0')*10 + msg[1]-'0';
+	if((code>=0)&&(code<=99)){
+		uint8_t paramCount = NUM_OF_PARAMS_PER_CODE[code];
+		uint16_t params[paramCount];
+		uint8_t retVal = getParamsFromPayload(msg+indexMsgPos,paramCount,params);
+		if(retVal!=0){
+			return retVal;
+		}
+	}
 	switch(code){
-		case 0:{
-			uint8_t paramCount = NUM_OF_PARAMS_PER_CODE[code];
-			uint16_t params[paramCount];
-			uint8_t retVal = getParamsFromPayload(msg+indexMsgPos,paramCount,params);
-			if(retVal==0){
-				return 0;
-			}
-			else{
-				return retVal;
-			}
-			
+		case 0:{		
+		
 			return 0;
 		}
 		case 1:{
+
 			return 0;
 		}
 		case 2:{
