@@ -1,4 +1,5 @@
 #include "build/temp/_test_msgRcv.c"
+#include "messageRcv.h"
 #include "unity.h"
 
 
@@ -28,6 +29,6 @@ void test_MessageRcv(void) {
 
 ((void *)0)
 
-), (UNITY_UINT)(14), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(15), UNITY_DISPLAY_STYLE_INT);
 
 }

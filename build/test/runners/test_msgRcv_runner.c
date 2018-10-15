@@ -70,7 +70,7 @@ int main(void)
 {
   suite_setup();
   UnityBegin("test_msgRcv.c");
-  RUN_TEST(test_MessageRcv, 11);
+  RUN_TEST(test_MessageRcv, 12);
 
   return suite_teardown(UnityEnd());
 }
