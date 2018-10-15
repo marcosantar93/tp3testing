@@ -64,7 +64,6 @@ static uint8_t getParamsFromPayload(uint8_t * msgPayload, const uint8_t paramCou
 				params[paramCountLocal]=aux;
 				aux = 0;
 				paramCountLocal++;
-
 			}
 		}
 		
