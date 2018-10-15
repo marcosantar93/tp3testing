@@ -242,3 +242,73 @@ void test_MessageRcvCode1(void) {
 
 
 }
+
+
+
+void test_MessageRcvCode2(void) {
+
+ uint8_t retVal;
+
+ uint8_t * msg00 = "02:1";
+
+ retVal = msgProcess(msg00);
+
+ UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(89), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg01 = "02:2";
+
+ retVal = msgProcess(msg01);
+
+ UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(92), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg02 = "02:X";
+
+ retVal = msgProcess(msg02);
+
+ UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(95), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg03 = "02:1,2";
+
+ retVal = msgProcess(msg03);
+
+ UnityAssertEqualNumber((UNITY_INT)((4)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(98), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg04 = "02:,";
+
+ retVal = msgProcess(msg04);
+
+ UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(101), UNITY_DISPLAY_STYLE_INT);
+
+ uint8_t * msg05 = "02:";
+
+ retVal = msgProcess(msg05);
+
+ UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((retVal)), (
+
+((void *)0)
+
+), (UNITY_UINT)(104), UNITY_DISPLAY_STYLE_INT);
+
+
+
+}

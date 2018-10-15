@@ -54,7 +54,6 @@ static uint8_t getParamsFromPayload(uint8_t * msgPayload, const uint8_t paramCou
 				aux *= 10;
 				aux += msgPayload[index]-'0';
 			}
-
 		}
 		else {
 			if(0 == charCount) //empty param
@@ -66,7 +65,6 @@ static uint8_t getParamsFromPayload(uint8_t * msgPayload, const uint8_t paramCou
 				paramCountLocal++;
 			}
 		}
-		
 	} while(msgPayload[index++] != 0);
 	
 	if(paramCount==paramCountLocal)

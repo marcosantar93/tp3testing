@@ -81,3 +81,26 @@ void test_MessageRcvCode1(void) {
 	TEST_ASSERT_EQUAL(3, retVal);
 
 }
+
+void test_MessageRcvCode2(void) {
+	uint8_t retVal;
+	uint8_t * msg00 = "02:1";
+	retVal = msgProcess(msg00);
+	TEST_ASSERT_EQUAL(0, retVal);
+	uint8_t * msg01 = "02:2";
+	retVal = msgProcess(msg01);
+	TEST_ASSERT_EQUAL(0, retVal);
+	uint8_t * msg02 = "02:X";
+	retVal = msgProcess(msg02);
+	TEST_ASSERT_EQUAL(2, retVal);
+	uint8_t * msg03 = "02:1,2";
+	retVal = msgProcess(msg03);
+	TEST_ASSERT_EQUAL(4, retVal);
+	uint8_t * msg04 = "02:,";
+	retVal = msgProcess(msg04);
+	TEST_ASSERT_EQUAL(3, retVal);
+	uint8_t * msg05 = "02:";
+	retVal = msgProcess(msg05);
+	TEST_ASSERT_EQUAL(3, retVal);
+
+}
