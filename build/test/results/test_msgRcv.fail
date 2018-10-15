@@ -1,0 +1,17 @@
+---
+:source:
+  :path: test
+  :file: test_msgRcv.c
+:successes: []
+:failures:
+- :test: test_MessageRcv
+  :line: 12
+  :message: Empezamos
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 0
+  :failed: 1
+  :ignored: 0
+:stdout: []
+:time: 0.0010302760001650313
