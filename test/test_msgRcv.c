@@ -1,5 +1,6 @@
 #include "unity.h"
 #include "messageRcv.h"
+#include "mock_reportConfig.h"
 
 void setUp(void) {
 
@@ -10,9 +11,17 @@ void tearDown(void) {
 }
 
 void test_MessageRcvBasic(void) {
-
+	paramsADCReport_t paramsADCReport={
+		.targetADC 			= 0,
+		.sensorType			= 0,
+		.interval			= 600,
+		.reportableChange	= 1,
+	};
+	configADCReport_ExpectAndReturn(paramsADCReport, 0);
 	TEST_ASSERT_EQUAL(0, msgProcess("00:0,0,600,1"));
+	startADCReport_ExpectAndReturn(paramsADCReport.targetADC, 0);
 	TEST_ASSERT_EQUAL(0, msgProcess("01:0"));
+	stopADCReport_ExpectAndReturn(paramsADCReport.targetADC, 0);
 	TEST_ASSERT_EQUAL(0, msgProcess("02:0"));
 	TEST_ASSERT_EQUAL(255, msgProcess("Invalid"));
 }

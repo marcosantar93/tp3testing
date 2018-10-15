@@ -6,6 +6,8 @@
   Unity.CurrentTestName = #TestFunc; \
   Unity.CurrentTestLineNumber = TestLineNum; \
   Unity.NumberOfTests++; \
+  CMock_Init(); \
+  UNITY_CLR_DETAILS(); \
   if (TEST_PROTECT()) \
   { \
       setUp(); \
@@ -14,7 +16,9 @@
   if (TEST_PROTECT()) \
   { \
     tearDown(); \
+    CMock_Verify(); \
   } \
+  CMock_Destroy(); \
   UnityConcludeTest(); \
 }
 
@@ -23,10 +27,12 @@
 #define UNITY_INCLUDE_SETUP_STUBS
 #endif
 #include "unity.h"
+#include "cmock.h"
 #ifndef UNITY_EXCLUDE_SETJMP_H
 #include <setjmp.h>
 #endif
 #include <stdio.h>
+#include "mock_reportConfig.h"
 
 int GlobalExpectCount;
 int GlobalVerifyOrder;
@@ -41,6 +47,23 @@ extern void test_MessageRcvCode1(void);
 extern void test_MessageRcvCode2(void);
 extern void test_Ranges(void);
 
+
+/*=======Mock Management=====*/
+static void CMock_Init(void)
+{
+  GlobalExpectCount = 0;
+  GlobalVerifyOrder = 0;
+  GlobalOrderError = NULL;
+  mock_reportConfig_Init();
+}
+static void CMock_Verify(void)
+{
+  mock_reportConfig_Verify();
+}
+static void CMock_Destroy(void)
+{
+  mock_reportConfig_Destroy();
+}
 
 /*=======Suite Setup=====*/
 static void suite_setup(void)
@@ -64,7 +87,10 @@ static int suite_teardown(int num_failures)
 void resetTest(void);
 void resetTest(void)
 {
+  CMock_Verify();
+  CMock_Destroy();
   tearDown();
+  CMock_Init();
   setUp();
 }
 
@@ -74,11 +100,12 @@ int main(void)
 {
   suite_setup();
   UnityBegin("test_msgRcv.c");
-  RUN_TEST(test_MessageRcvBasic, 12);
-  RUN_TEST(test_MessageRcvCode0, 20);
-  RUN_TEST(test_MessageRcvCode1, 33);
-  RUN_TEST(test_MessageRcvCode2, 43);
-  RUN_TEST(test_Ranges, 52);
+  RUN_TEST(test_MessageRcvBasic, 13);
+  RUN_TEST(test_MessageRcvCode0, 29);
+  RUN_TEST(test_MessageRcvCode1, 42);
+  RUN_TEST(test_MessageRcvCode2, 52);
+  RUN_TEST(test_Ranges, 61);
 
+  CMock_Guts_MemFreeFinal();
   return suite_teardown(UnityEnd());
 }

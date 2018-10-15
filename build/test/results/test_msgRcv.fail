@@ -1,0 +1,29 @@
+---
+:source:
+  :path: test
+  :file: test_msgRcv.c
+:successes:
+- :test: test_MessageRcvBasic
+  :line: 13
+  :message: ''
+- :test: test_MessageRcvCode0
+  :line: 29
+  :message: ''
+- :test: test_Ranges
+  :line: 61
+  :message: ''
+:failures:
+- :test: test_MessageRcvCode1
+  :line: 42
+  :message: Function startADCReport.  Called more times than expected.
+- :test: test_MessageRcvCode2
+  :line: 52
+  :message: Function stopADCReport.  Called more times than expected.
+:ignores: []
+:counts:
+  :total: 5
+  :passed: 3
+  :failed: 2
+  :ignored: 0
+:stdout: []
+:time: 0.0008602129964856431

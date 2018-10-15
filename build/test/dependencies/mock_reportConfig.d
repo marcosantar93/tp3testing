@@ -1,5 +1,5 @@
-build/test/out/c/test_msgRcv_runner.o: \
- build/test/runners/test_msgRcv_runner.c \
+build/test/out/c/mock_reportConfig.o: \
+ build/test/mocks/mock_reportConfig.c \
  /home/marco/tp3testing/vendor/ceedling/vendor/unity/src/unity.h \
  /home/marco/tp3testing/vendor/ceedling/vendor/unity/src/unity_internals.h \
  /home/marco/tp3testing/vendor/ceedling/vendor/cmock/src/cmock.h \
